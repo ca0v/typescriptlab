@@ -1,0 +1,19 @@
+{
+  "name": "@ca0v/l1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "compile": "tsc",
+    "watch:compile": "npm run compile -- -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
