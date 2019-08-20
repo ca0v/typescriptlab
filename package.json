@@ -1,0 +1,28 @@
+{
+  "name": "typescriptlab",
+  "version": "1.0.0",
+  "description": "Nested package dependencies, l1, l2, l3, build into a single AMD module (l3/dist/index.js)",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "watch:compile": "npm run compile -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ca0v/typescriptlab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ca0v/typescriptlab/issues"
+  },
+  "homepage": "https://github.com/ca0v/typescriptlab#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@ca0v/l1": "file:l1",
+    "@ca0v/l2": "file:l2",
+    "@ca0v/l3": "file:l3",
+    "typescript": "^3.5.3"
+  }
+}

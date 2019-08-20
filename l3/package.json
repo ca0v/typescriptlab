@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@ca0v/l1": "file:../l1",
     "@ca0v/l2": "file:../l2",
     "@types/jquery": "^3.3.31",
     "typescript": "^3.5.3"
-  }
+  },
+  "dependencies": {}
 }
