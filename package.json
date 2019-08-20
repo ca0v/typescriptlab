@@ -1,5 +1,5 @@
 {
-  "name": "typescriptlab",
+  "name": "@ca0v/typescriptlab",
   "version": "1.0.0",
   "description": "Nested package dependencies, l1, l2, l3, build into a single AMD module (l3/dist/index.js)",
   "main": "index.js",
