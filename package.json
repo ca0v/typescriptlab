@@ -18,11 +18,11 @@
     "url": "https://github.com/ca0v/typescriptlab/issues"
   },
   "homepage": "https://github.com/ca0v/typescriptlab#readme",
-  "dependencies": {},
   "devDependencies": {
     "@ca0v/l1": "file:l1",
     "@ca0v/l2": "file:l2",
     "@ca0v/l3": "file:l3",
+    "lerna": "^3.16.4",
     "typescript": "^3.5.3"
   }
 }
