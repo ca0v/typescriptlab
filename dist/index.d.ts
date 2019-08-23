@@ -19,3 +19,4 @@ declare module "l3/src/index" {
 declare module "src/index" {
     export function run(): void;
 }
+//# sourceMappingURL=index.d.ts.map

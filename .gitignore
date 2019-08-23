@@ -1,5 +1,6 @@
 # Dependency directories
 node_modules/
+dist/**
 l1/dist/**
 l2/dist/**
 l3/dist/**

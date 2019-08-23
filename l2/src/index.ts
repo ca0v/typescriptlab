@@ -4,7 +4,7 @@ import { Layer1 } from "@ca0v/l1";
 
 export class Layer2 extends Layer1 {
   run() {
-    Tween;
+    console.log("Tween", Tween);
     super.run();
     console.log("Layer2.run");
   }

@@ -7,5 +7,7 @@ export function run() {
   let l2 = new Layer2();
   let l3 = new Layer3();
 
-  console.log(l1 && l2 && l3);
+  console.log(l1, l2, l3);
+  l3.init();
+  l3.run();
 }
