@@ -1,9 +1,11 @@
 {
   "name": "@ca0v/typescriptlab",
   "version": "1.0.0",
+  "private": true,
   "description": "Nested package dependencies, l1, l2, l3, build into a single AMD module (l3/dist/index.js)",
   "main": "index.js",
   "scripts": {
+    "postinstall": "lerna bootstrap && lerna run compile",
     "compile": "tsc",
     "watch:compile": "npm run compile -- -w"
   },
@@ -19,10 +21,13 @@
   },
   "homepage": "https://github.com/ca0v/typescriptlab#readme",
   "devDependencies": {
-    "@ca0v/l1": "file:l1",
-    "@ca0v/l2": "file:l2",
-    "@ca0v/l3": "file:l3",
+    "@types/jquery": "^3.3.31",
     "lerna": "^3.16.4",
     "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@ca0v/l1": "file:l1",
+    "@ca0v/l2": "file:l2",
+    "@ca0v/l3": "file:l3"
   }
 }

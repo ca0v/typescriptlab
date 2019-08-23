@@ -1,7 +1,8 @@
 {
   "name": "@ca0v/l3",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "Private module with dependencies on private module",
   "main": "src/index.ts",
   "scripts": {
     "compile": "tsc",
@@ -9,12 +10,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@ca0v/l1": "file:../l1",
-    "@ca0v/l2": "file:../l2",
-    "@types/jquery": "^3.3.31",
-    "typescript": "^3.5.3"
-  },
-  "dependencies": {}
+  "license": "ISC"
 }
