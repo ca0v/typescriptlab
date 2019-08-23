@@ -1,8 +1,8 @@
-import { css } from "jquery";
+import { isArray } from "jquery";
 
 export class Layer1 {
   init() {
-    console.log("css", css);
+    console.log("isArray", isArray([]));
     console.log("Layer1.init");
   }
 

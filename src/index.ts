@@ -10,4 +10,5 @@ export function run() {
   console.log(l1, l2, l3);
   l3.init();
   l3.run();
+  console.log("done");
 }

@@ -5,12 +5,14 @@
   "description": "Nested package dependencies, l1, l2, l3, build into a single AMD module (l3/dist/index.js)",
   "main": "index.js",
   "scripts": {
-    "terser": "terser node_modules/requirejs/require.js node_modules/jquery/dist/jquery.js src/yall.js dist/index.js -o dist/app.js --source-map \"url='./app.js.map',content='./dist/index.js.map',includeSources=true\" ",
     "postinstall": "lerna bootstrap",
-    "run": "npm run compile && npm run terser && npm run server",
-    "server": "live-server --open=./src/app.html",
     "compile": "tsc",
-    "watch:compile": "npm run compile -- -w"
+    "watch:compile": "npm run compile -- -w",
+    "watch:terser": "chokidar \"dist/index.js\" -d -t -c \"npm run terser\"",
+    "terser": "terser node_modules/requirejs/require.js node_modules/jquery/dist/jquery.js src/yall.js dist/index.js -o dist/app.js --source-map \"url='./app.js.map',content='./dist/index.js.map',includeSources=true\" ",
+    "watch:server": "live-server --open=./src/app.html --watch=dist\\app.js,src\\app.html",
+    "watch": "npm-run-all -p watch:compile watch:terser watch:server",
+    "test": "@echo todo"
   },
   "repository": {
     "type": "git",
@@ -25,8 +27,10 @@
   "homepage": "https://github.com/ca0v/typescriptlab#readme",
   "devDependencies": {
     "@types/jquery": "^3.3.31",
+    "chokidar-cli": "^2.0.0",
     "lerna": "^3.16.4",
     "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
     "terser": "^4.2.0",
     "typescript": "^3.5.3"
   },
