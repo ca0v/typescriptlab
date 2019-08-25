@@ -11,4 +11,5 @@ export function run() {
   l3.init();
   l3.run();
   console.log("done");
+  alert("see console");
 }
