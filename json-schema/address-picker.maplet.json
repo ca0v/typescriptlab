@@ -1,0 +1,478 @@
+{
+    "$schema": "./maplet.schema.json",
+    "id": "rhythm-civics-address-picker",
+    "about": "User clicks the map to query for IPS addresses and parcels then selects the marker of interest",
+    "parentId": "rhythm-civics-base,property-layers",
+    "Map": {
+        "Symbology": {
+            "Symbols": [
+                {
+                    "Icons": [],
+                    "id": "*",
+                    "Label": "\u003c%= displayText %\u003e",
+                    "about": "Show displayText"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchor\": [0.5, 1.0],\r\n        \"color\": [255, 0, 0], \r\n        \"opacity\": 0.5,\r\n        \"scale\": 0.75\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003e\u003c%= displayText %\u003e\u003c/address\u003e"
+                        }
+                    ],
+                    "id": "addresses",
+                    "Label": "\u003c%= displayText %\u003e",
+                    "about": "ips addresses"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"outline\": {\r\n        \"type\": \"sls\",\r\n        \"style\": \"solid\",\r\n        \"color\": [246, 103, 197, 1],\r\n        \"width\": 1\r\n     },\r\n    \"fill\": {\r\n        \"type\": \"sfs\",\r\n        \"style\": \"solid\",\r\n        \"color\": [246, 103, 197, 0.3]\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003ch3\u003eParcel\u003c/h3\u003e",
+                            "about": "Without labels"
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "zoom",
+                                        "Value": "\u003e18",
+                                        "about": "Only show labels when zoom exceeds 16"
+                                    }
+                                ]
+                            },
+                            "id": "labels",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"text\": {\r\n        \"text\": \"\u003c%=PRCLID %\u003e\",\r\n        \"textAlign\": \"center\",\r\n        \"textBaseline\": \"top\"\r\n    },\r\n    \"outline\": {\r\n        \"type\": \"sls\",\r\n        \"style\": \"solid\",\r\n        \"color\": [246, 103, 197, 1],\r\n        \"width\": 1\r\n     },\r\n    \"fill\": {\r\n        \"type\": \"sfs\",\r\n        \"style\": \"solid\",\r\n        \"color\": [246, 103, 197, 0.3]\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003ch3\u003eParcel\u003c/h3\u003e",
+                            "about": "With labels"
+                        }
+                    ],
+                    "id": "parcels",
+                    "Label": "\u003c%= PRCLNAME %\u003e",
+                    "about": "ags parcels"
+                }
+            ],
+            "IconWidth": 0,
+            "IconHeight": 0
+        },
+        "Layers": {
+            "Layers": [
+                {
+                    "id": "property-layer-group",
+                    "minlevel": 0,
+                    "disabled": false,
+                    "Layers": {
+                        "Layers": [
+                            {
+                                "id": "properties",
+                                "basemap": false,
+                                "minlevel": 0,
+                                "maxlevel": 0,
+                                "disabled": false
+                            },
+                            {
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "layerType",
+                                            "value": "rest"
+                                        },
+                                        {
+                                            "id": "showLayers",
+                                            "about": "Properties",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "id": "extent",
+                                            "about": "This is ignored because the LAYER already has an \"extent\" attribute",
+                                            "value": "-115.3,36.16,-115.206,36.20"
+                                        }
+                                    ]
+                                },
+                                "id": "addresses",
+                                "text": "Addresses",
+                                "url": "//usalvwdgis1:6080/arcgis/rest/services/Vegas/MapVegas850/MapServer",
+                                "type": "app/layer-factory/arcgis-tile",
+                                "basemap": false,
+                                "extent": "-115.3,36.16,-115.206,36.20",
+                                "minlevel": 0,
+                                "maxlevel": 0,
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "Commands": {
+                        "Commands": [
+                            {
+                                "id": "select-this-parcel",
+                                "about": "Adds a command to identify this address as the one the user is interested in using",
+                                "mid": "app/commands/trigger",
+                                "text": "Use This Parcel",
+                                "disabled": false,
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "event",
+                                            "about": "explicitly name the event that is fired when this command runs",
+                                            "value": "civics:show-details"
+                                        },
+                                        {
+                                            "id": "css-name",
+                                            "value": "btn btn-secondary"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "Events": {
+                        "Events": [
+                            {
+                                "name": "layer-addfeature",
+                                "id": "add-feature-handler",
+                                "mid": "app/commands/synthetic-add-features",
+                                "disabled": false,
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "event",
+                                            "value": "show-info"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "Options": {
+                        "Values": [
+                            {
+                                "id": "field-list",
+                                "value": "PRCLID,OWNER,SUBNAME,CALC_ACRES,MARKAREA,TAXDIST,parcelId"
+                            },
+                            {
+                                "id": "show-labels",
+                                "value": "false"
+                            },
+                            {
+                                "id": "field-labels",
+                                "value": "Id,Owner,Sub,Acres,Area,District"
+                            },
+                            {
+                                "id": "join-query-service",
+                                "value": "property/parcels"
+                            },
+                            {
+                                "id": "join-query-service-template",
+                                "value": "{filter:{property:parcelId,operator:Equals,value:\"\u003c%= PRCLID %\u003e\"}}"
+                            }
+                        ]
+                    },
+                    "id": "parcel-features",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false
+                },
+                {
+                    "Commands": {
+                        "Commands": [
+                            {
+                                "id": "select-this-address",
+                                "about": "Adds a command to identify this address as the one the user is interested in using",
+                                "mid": "app/commands/trigger",
+                                "text": "Use This Address",
+                                "disabled": false,
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "event",
+                                            "about": "explicitly name the event that is fired when this command runs",
+                                            "value": "civics:show-details"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "id": "address-features",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false
+                }
+            ]
+        }
+    },
+    "Commands": {
+        "Commands": [
+            {
+                "id": "layer-switcher",
+                "about": "No layer switcher for this map",
+                "disabled": false
+            },
+            {
+                "id": "reverse-geoquery-tool",
+                "about": "Allow user to click a feature to display information about that feature; this is failing because the map is not loaded by the time this runs so moving it into a toolbar control",
+                "mid": "app/commands/feature-selection-tool",
+                "text": "Get Info",
+                "type": "startup",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "type",
+                            "about": "User can click the map to query feature info (set value to point+box for multi-select)",
+                            "value": "point"
+                        },
+                        {
+                            "id": "event",
+                            "about": "clear features, perform geoquery, flash search extent",
+                            "value": "clear-features-from-layer,reverse-geoquery,flash-buffer"
+                        },
+                        {
+                            "id": "buffer-size",
+                            "about": "Make the buffer area large enough to easily select point features",
+                            "value": "16"
+                        },
+                        {
+                            "id": "condition",
+                            "about": "if shift/ctrl/alt pressed then do nothing",
+                            "value": "none"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "get-info-tool",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "condition",
+                            "value": "shift"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Controls": {
+        "Controls": [
+            {
+                "Commands": {
+                    "Commands": [
+                        {
+                            "id": "current-location",
+                            "about": "Invokes the \u0027current-location\u0027 handler, switch type to \"action\" to make it a button",
+                            "mid": "app/commands/trigger",
+                            "text": "🔘",
+                            "type": "action",
+                            "disabled": true,
+                            "Options": {
+                                "Values": [
+                                    {
+                                        "id": "region",
+                                        "value": "current-location-tool"
+                                    },
+                                    {
+                                        "id": "title",
+                                        "value": "Go to current Location"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": "destroy-maplet",
+                            "about": "Destroy the map",
+                            "mid": "app/commands/destroy-maplet",
+                            "text": "TEST: Destroy Maplet",
+                            "type": "action",
+                            "disabled": true,
+                            "Options": {
+                                "Values": [
+                                    {
+                                        "id": "title",
+                                        "value": "DESTROY Maplet"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "Controls": {
+                    "Controls": [
+                        {
+                            "id": "universal-search-tool",
+                            "about": "No quick-search for this map",
+                            "disabled": false
+                        }
+                    ]
+                },
+                "id": "toolbar",
+                "disabled": false
+            }
+        ]
+    },
+    "Events": {
+        "Events": [
+            {
+                "id": "google-reverse-locator",
+                "about": "shift+click will instead do an IPS address search",
+                "disabled": true
+            },
+            {
+                "name": "reverse-geoquery",
+                "id": "ips-address-reverse-locator",
+                "about": "Perform an IPS REST query for addresses",
+                "mid": "app/commands/ips-geoquery-locator",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "query-service",
+                            "about": "search for addresses",
+                            "value": "property/addresses"
+                        },
+                        {
+                            "id": "service-query-template",
+                            "about": "relies on the x and y coordinates of the address",
+                            "value": "{filter:[{property:xcoordinate,operator:GreaterThan,value:\u003c%=x1%\u003e},{property:xcoordinate,operator:LessThan,value:\u003c%=x2%\u003e},{property:ycoordinate,operator:GreaterThan,value:\u003c%=y1%\u003e},{property:ycoordinate,operator:LessThan,value:\u003c%=y2%\u003e}]}"
+                        },
+                        {
+                            "id": "symbology",
+                            "about": "limit symbology rules to \u0027addresses\u0027 only",
+                            "value": "addresses"
+                        },
+                        {
+                            "id": "srs",
+                            "about": "must identify the IPS spatial reference system and this system must be registered with the maplet (see add-projection)",
+                            "value": "EPSG:3421"
+                        },
+                        {
+                            "id": "event",
+                            "about": "once the addresses are found notify the handler that will add them to the address layer",
+                            "value": "add-to-address-layer,auto-zoom"
+                        },
+                        {
+                            "id": "key-template",
+                            "value": "\u003c%=href%\u003e"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "reverse-geoquery",
+                "id": "ags-parcel-reverse-locator",
+                "about": "Perform an AGS query against the parcel layer (18) to find/render parcels",
+                "mid": "app/commands/ags-geoquery-locator",
+                "text": "Parcel Locator",
+                "type": "spatial",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "query-service",
+                            "value": "//usalvwdgis1:6080/arcgis/rest/services/Vegas/MapVegas850/MapServer"
+                        },
+                        {
+                            "id": "symbology",
+                            "value": "parcels"
+                        },
+                        {
+                            "id": "zoommap",
+                            "about": "deprecate \u0027zoommap\u0027 and use auto-zoom event instead",
+                            "value": "false"
+                        },
+                        {
+                            "id": "layers",
+                            "value": "18"
+                        },
+                        {
+                            "id": "event",
+                            "about": "once the addresses are found notify the handler that will add them to the address layer",
+                            "value": "add-to-parcel-layer,auto-zoom"
+                        },
+                        {
+                            "id": "key-template",
+                            "value": "\u003c%=FID%\u003e"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "add-to-parcel-layer-handler",
+                "disabled": false
+            },
+            {
+                "name": "current-location",
+                "id": "current-location-handler",
+                "about": "pan to current location, chrome requires https",
+                "mid": "app/commands/geolocation-tool",
+                "type": "action",
+                "disabled": false
+            },
+            {
+                "name": "flash-buffer",
+                "id": "flash-buffer-handler",
+                "about": "Temporarily display geometry",
+                "mid": "app/commands/flash-feature",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "delay",
+                            "about": "wait one second before removing feature",
+                            "value": "1"
+                        },
+                        {
+                            "id": "symbology",
+                            "about": "Symbology rule for the flash feature",
+                            "value": "flash-buffer"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "liferay:map:ready,\r\nliferay:map:more-info,\r\nliferay:map:clicked,\r\nliferay:model:clicked,\r\nliferay:collection:cleared,\r\nliferay:collection:updated,\r\ncivics:zone-validation",
+                "id": "trace",
+                "mid": "app/commands/trigger",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "trace",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "show-info-handler-controller",
+                "id": "synthetic-click",
+                "mid": "app/commands/infoviewer-paging-as-feature-click-event",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "event",
+                            "about": "highlight the feature each time the user pages",
+                            "value": "flash-buffer"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

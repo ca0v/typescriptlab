@@ -1,0 +1,434 @@
+{
+    "$schema": "./maplet.schema.json",
+    "id": "rhythm-testing",
+    "about": "Test Configuration",
+    "parentId": "rhythm-civics-base",
+    "text": "Test config for rhythm",
+    "Map": {
+        "Symbology": {
+            "Symbols": [
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "json",
+                            "style": "[{\r\n    \"star\": {\r\n        \"fill\": {\r\n            \"color\": \"rgba(238,162,144,1)\"\r\n        },\r\n        \"opacity\": 1,\r\n        \"stroke\": {\r\n            \"color\": \"rgba(169,141,168,0.8)\",\r\n            \"width\": 1\r\n        },\r\n        \"radius\": 7,\r\n        \"radius2\": 2,\r\n        \"points\": 5\r\n    }\r\n},\r\n{\r\n    \"icon\": {\r\n        \"src\": \"app/icons/solid.png\",\r\n        \"anchor-y\": 1,\r\n        \"color\": \"rgba(94,94,94,1)\",\r\n        \"scale\": 0.8\r\n    }\r\n},\r\n{\r\n    \"text\": {\r\n        \"text\": \"9\",\r\n        \"font\": \"16px Helvetica\",\r\n        \"offset-y\": -32,\r\n        \"fill\": {\r\n            \"color\": \"rgba(255,255,255,1)\"\r\n        },\r\n        \"stroke\": {\r\n            \"color\": \"rgba(94,94,94,1)\",\r\n            \"width\": 1\r\n        }\r\n    }\r\n}]",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "Point Feature",
+                            "about": "Renders point feature with a number on the marker"
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "somecount_0_10",
+                                        "Value": "\u003c10",
+                                        "about": "the count must be less than 10"
+                                    }
+                                ]
+                            },
+                            "id": "tiny",
+                            "type": "json",
+                            "style": "[{\r\n    \"star\": {\r\n        \"fill\": {\r\n            \"color\": \"rgba(94,94,94,0.5)\"\r\n        },\r\n        \"opacity\": 1,\r\n        \"rotation\": 0,\r\n        \"stroke\": {\r\n            \"color\": \"rgba(94,94,94,1)\",\r\n            \"width\": 1\r\n        },\r\n        \"radius\": 55,\r\n        \"radius2\": 20,\r\n        \"points\": 2\r\n    }\r\n},\r\n{\r\n    \"svg\": {\r\n        \"imgSize\": [\r\n        13, 20],\r\n        \"anchor\": [0.5, 1],\r\n        \"scale\": 1,\r\n        \"rotation\": 0,\r\n        \"fill\": {\r\n            \"color\": \"rgba(94,94,94,1)\"\r\n        },\r\n        \"stroke\": {\r\n            \"color\": \"rgba(255,255,255,1)\",\r\n            \"width\": 1\r\n        },\r\n        \"path\": \"M6.3,0C6.3,0,0,0.1,0,7.5c0,3.8z\"\r\n    }\r\n},\r\n{\r\n    \"text\": {\r\n        \"text\": \"9\",\r\n        \"font\": \"12px Helvetica\",\r\n        \"scale\": 1,\r\n        \"rotation\": 0,\r\n        \"offset-x\": 0,\r\n        \"offset-y\": -12,\r\n        \"fill\": {\r\n            \"color\": \"rgba(255,255,255,1)\"\r\n        },\r\n        \"stroke\": {\r\n            \"color\": \"rgba(94,94,94,1)\",\r\n            \"width\": 0\r\n        }\r\n    }\r\n}]",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "Point Feature",
+                            "about": "Tiny marker with #"
+                        }
+                    ],
+                    "id": "point-features",
+                    "Label": "Point Features",
+                    "about": "Container for point feature styles"
+                }
+            ],
+            "IconWidth": 0,
+            "IconHeight": 0
+        },
+        "Layers": {
+            "Layers": [
+                {
+                    "Layers": {
+                        "Layers": [
+                            {
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "symbology",
+                                            "about": "Render as a zone",
+                                            "value": "zones"
+                                        },
+                                        {
+                                            "id": "filter",
+                                            "about": "This layer only renders the desired zone (filtering by moniker is just a hack to make sure \u0027filter\u0027 works)",
+                                            "value": "H8MONIKER=\u0027Hansen.CDR.Building.Inspection\u0027"
+                                        },
+                                        {
+                                            "id": "resultRecordCount",
+                                            "about": "No not return more than 10 results",
+                                            "value": "10"
+                                        },
+                                        {
+                                            "id": "visible",
+                                            "value": "false"
+                                        }
+                                    ]
+                                },
+                                "id": "ags-zone-1",
+                                "text": "Zone 1",
+                                "url": "http://usalvwdgis1:6080/arcgis/rest/services/Annotations/H840_Annotations/FeatureServer/5",
+                                "type": "app/layer-factory/ags-featureserver",
+                                "basemap": false,
+                                "minlevel": 0,
+                                "maxlevel": 0,
+                                "disabled": false,
+                                "about": "Need ability to render polygons hosted on Portal for ArcGIS"
+                            },
+                            {
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "symbology",
+                                            "about": "Render as a zone",
+                                            "value": "zones"
+                                        },
+                                        {
+                                            "id": "filter",
+                                            "about": "This layer only renders the desired zone (filtering by moniker is just a hack to make sure \u0027filter\u0027 works)",
+                                            "value": "H8MONIKER=\u0027Hansen.CDR.Building.BuildingApplication\u0027"
+                                        },
+                                        {
+                                            "id": "resultRecordCount",
+                                            "about": "No not return more than 10 results",
+                                            "value": "10"
+                                        },
+                                        {
+                                            "id": "visible",
+                                            "value": "false"
+                                        }
+                                    ]
+                                },
+                                "id": "ags-zone-2",
+                                "text": "Zone 2",
+                                "url": "http://usalvwdgis1:6080/arcgis/rest/services/Annotations/H840_Annotations/FeatureServer/5",
+                                "type": "app/layer-factory/ags-featureserver",
+                                "basemap": false,
+                                "minlevel": 0,
+                                "maxlevel": 0,
+                                "disabled": false,
+                                "about": "Need ability to render polygons hosted on Portal for ArcGIS"
+                            }
+                        ]
+                    },
+                    "id": "property-layer-group",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false
+                },
+                {
+                    "Features": {
+                        "Features": [
+                            {
+                                "Attributes": {
+                                    "Values": [
+                                        {
+                                            "id": "somecount",
+                                            "value": "3"
+                                        }
+                                    ]
+                                },
+                                "id": "show-3",
+                                "text": "3",
+                                "geom": "-115.2342,36.1746",
+                                "type": "point",
+                                "about": "Test marker to render a number in its center"
+                            },
+                            {
+                                "Attributes": {
+                                    "Values": [
+                                        {
+                                            "id": "somecount",
+                                            "value": "30"
+                                        }
+                                    ]
+                                },
+                                "id": "show-30",
+                                "text": "show-30",
+                                "geom": "-115.233,36.1746",
+                                "type": "point",
+                                "about": "Test marker to render a number in its center"
+                            },
+                            {
+                                "Attributes": {
+                                    "Values": [
+                                        {
+                                            "id": "somecount",
+                                            "value": "123"
+                                        }
+                                    ]
+                                },
+                                "id": "show-123",
+                                "text": "show-123",
+                                "geom": "-115.235,36.173",
+                                "type": "point",
+                                "about": "Test marker to render a number in its center"
+                            },
+                            {
+                                "Attributes": {
+                                    "Values": [
+                                        {
+                                            "id": "somecount",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                "id": "no-count",
+                                "text": "3",
+                                "geom": "-115.235,36.175",
+                                "type": "point",
+                                "about": "Test marker to render a number in its center"
+                            }
+                        ]
+                    },
+                    "Commands": {
+                        "Commands": [
+                            {
+                                "id": "use-this-parcel",
+                                "about": "Click this button to kick of a MUX test",
+                                "mid": "app/commands/trigger",
+                                "text": "Use this Parcel",
+                                "type": "action",
+                                "disabled": false
+                            }
+                        ]
+                    },
+                    "Options": {
+                        "Values": [
+                            {
+                                "id": "symbology",
+                                "value": "point-features"
+                            }
+                        ]
+                    },
+                    "id": "point-features",
+                    "text": "Test Points",
+                    "type": "app/layer-factory/configuration-features",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false
+                }
+            ]
+        },
+        "Options": {
+            "Values": [
+                {
+                    "id": "init-center",
+                    "value": "-115.2342,36.1746"
+                },
+                {
+                    "id": "init-zoom",
+                    "value": "18"
+                }
+            ]
+        }
+    },
+    "Events": {
+        "Events": [
+            {
+                "name": "use-this-parcel,civics:show-details",
+                "id": "parcel-selection-handler",
+                "about": "Once user selects a parcel broadcast events to run a zones query, zone validation query and parcel validation query",
+                "mid": "app/commands/trigger",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "event",
+                            "value": "in-red-zone,in-green-zone,in-zone"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "in-zone",
+                "id": "in-zone-handler",
+                "about": "invoke a zone query for any zones that intersect the currently selected feature",
+                "mid": "app/commands/ags-geoquery-locator",
+                "type": "spatial",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "event",
+                            "value": "in-zone-handler"
+                        },
+                        {
+                            "id": "query-service",
+                            "value": "http://usgvl-shotgun02:6080/arcgis/rest/services/Annotations/H840_ANNOTATIONS5/FeatureServer"
+                        },
+                        {
+                            "id": "layers",
+                            "about": "This is the \u0027areas\u0027 layer on the IPS drawings",
+                            "value": "3"
+                        },
+                        {
+                            "id": "filter",
+                            "about": "get all zones",
+                            "value": "1=1"
+                        },
+                        {
+                            "id": "returnGeometry",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "in-red-zone",
+                "id": "in-red-zone-handler",
+                "about": "invoke a zone query for the total count of zones that intersect the currently selected feature",
+                "mid": "app/commands/ags-geoquery-locator",
+                "type": "spatial",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "event",
+                            "value": "red-zone-count"
+                        },
+                        {
+                            "id": "query-service",
+                            "value": "http://usgvl-shotgun02:6080/arcgis/rest/services/Annotations/H840_ANNOTATIONS5/FeatureServer"
+                        },
+                        {
+                            "id": "layers",
+                            "about": "This is the \u0027areas\u0027 layer on the IPS drawings",
+                            "value": "3"
+                        },
+                        {
+                            "id": "filter",
+                            "about": "Just an example of filtering out valid zones, here only \u0027RED\u0027 zones are counted",
+                            "value": "H8REGION=\u0027RED\u0027"
+                        },
+                        {
+                            "id": "returnCountOnly",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "in-green-zone",
+                "id": "in-green-zone-handler",
+                "about": "invoke a zone query for the total count of zones that intersect the currently selected feature",
+                "mid": "app/commands/ags-geoquery-locator",
+                "type": "spatial",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "event",
+                            "value": "green-zone-count"
+                        },
+                        {
+                            "id": "query-service",
+                            "value": "http://usgvl-shotgun02:6080/arcgis/rest/services/Annotations/H840_ANNOTATIONS5/FeatureServer"
+                        },
+                        {
+                            "id": "layers",
+                            "about": "This is the \u0027areas\u0027 layer on the IPS drawings",
+                            "value": "3"
+                        },
+                        {
+                            "id": "filter",
+                            "about": "Just an example of filtering out valid zones, here only \u0027GREEN\u0027 zones are counted",
+                            "value": "H8REGION=\u0027GREEN\u0027"
+                        },
+                        {
+                            "id": "returnCountOnly",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "red-zone-count",
+                "id": "red-zone-valid",
+                "about": "Validates the zone-count-handler results, if the count=0 then valid",
+                "mid": "app/commands/validator",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "max-result-count",
+                            "about": "We do not want any zones!",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "green-zone-count",
+                "id": "green-zone-valid",
+                "about": "Validates the zone-count-handler results, if the count\u003e1 then valid",
+                "mid": "app/commands/validator",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "min-result-count",
+                            "about": "must be in the green zone",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "use-this-parcel,civics:show-details",
+                "id": "parcel-validation-multiplexer",
+                "about": "Report the current feature, validation results and intersecting zones back to civics",
+                "mid": "app/commands/multiplexer",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "once",
+                            "about": "Only do this once per \"use-this-parcel\" event",
+                            "value": "true"
+                        },
+                        {
+                            "id": "in",
+                            "value": "in-zone-handler,red-zone-valid,green-zone-valid"
+                        },
+                        {
+                            "id": "out",
+                            "value": "parcel-zone-package"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "parcel-zone-package",
+                "id": "parcel-zone-package-handler",
+                "about": "Prepare the results before sending to civics",
+                "mid": "app/commands/trigger",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "trace",
+                            "value": "true"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Notify civics",
+                            "value": "civics:parcel-zone-package"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

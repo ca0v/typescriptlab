@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "undefined": "https://github.com/ca0v/ceylon/tarball/v1.0.1"
   }
 }

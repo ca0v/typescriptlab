@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ca0v/l1": "file:../l1"
+    "@ca0v/l1": "file:../l1",
+    "undefined": "https://github.com/ca0v/ceylon/tarball/v1.0.1"
   }
 }

@@ -1,0 +1,366 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "Map": {
+      "$id": "#/properties/Map",
+      "type": "object",
+      "title": "The Map Schema",
+      "required": [],
+      "properties": {
+        "Symbology": {
+          "$id": "#/properties/Map/properties/Symbology",
+          "type": "object",
+          "title": "The Symbology Schema",
+          "required": [
+            "Symbols"
+          ],
+          "properties": {
+            "Symbols": {
+              "$id": "#/properties/Map/properties/Symbology/properties/Symbols",
+              "type": "array",
+              "title": "The Symbols Schema",
+              "items": {
+                "$id": "#/properties/Map/properties/Symbology/properties/Symbols/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                  "id",
+                  "Icons"
+                ],
+                "properties": {
+                  "IconWidth": {
+                    "type": "number"
+                  },
+                  "IconHeight": {
+                    "type": "number"
+                  },
+                  "Icons": {
+                    "$id": "#/properties/Map/properties/Symbology/properties/Symbols/items/properties/Icons",
+                    "type": "array",
+                    "title": "The Icons Schema",
+                    "items": {
+                      "required": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "Width": {
+                          "type": "number"
+                        },
+                        "Height": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "id": {
+                    "$id": "#/properties/Map/properties/Symbology/properties/Symbols/items/properties/id",
+                    "type": "string",
+                    "title": "The Id Schema",
+                    "default": "",
+                    "examples": [
+                      "*"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "Label": {
+                    "$id": "#/properties/Map/properties/Symbology/properties/Symbols/items/properties/Label",
+                    "type": "string",
+                    "title": "The Label Schema",
+                    "default": "",
+                    "examples": [
+                      "<%= displayText %>"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "about": {
+                    "$id": "#/properties/Map/properties/Symbology/properties/Symbols/items/properties/about",
+                    "type": "string",
+                    "title": "The About Schema",
+                    "default": "",
+                    "examples": [
+                      "Show displayText"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              }
+            },
+            "IconWidth": {
+              "$id": "#/properties/Map/properties/Symbology/properties/IconWidth",
+              "type": "integer",
+              "title": "The Iconwidth Schema",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            },
+            "IconHeight": {
+              "$id": "#/properties/Map/properties/Symbology/properties/IconHeight",
+              "type": "integer",
+              "title": "The Iconheight Schema",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            }
+          }
+        },
+        "Layers": {
+          "$id": "#/properties/Map/properties/Layers",
+          "type": "object",
+          "title": "The Layers Schema",
+          "required": [
+            "Layers"
+          ],
+          "properties": {
+            "Layers": {
+              "$id": "#/properties/Map/properties/Layers/properties/Layers",
+              "type": "array",
+              "title": "The Layers Schema",
+              "items": {
+                "oneOf": [
+                  {
+                    "$id": "#/properties/Map/properties/Layers/properties/Layers/items",
+                    "type": "object",
+                    "title": "The Items Schema",
+                    "required": [
+                      "id",
+                      "Layers"
+                    ],
+                    "properties": {
+                      "Layers": {
+                        "$ref": "#/properties/Map/properties/Layers"
+                      }
+                    }
+                  },
+                  {
+                    "$id": "#/properties/Map/properties/Layers/properties/Layers/items",
+                    "type": "object",
+                    "title": "The Items Schema",
+                    "required": [
+                      "id",
+                      "basemap",
+                      "minlevel",
+                      "maxlevel",
+                      "disabled"
+                    ],
+                    "properties": {
+                      "Commands": {
+                        "$ref": "#/properties/Commands"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "id": {
+      "$id": "#/properties/id",
+      "type": "string",
+      "title": "The Id Schema",
+      "default": "",
+      "examples": [
+        "rhythm-civics-address-picker"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "about": {
+      "$id": "#/properties/about",
+      "type": "string",
+      "title": "The About Schema",
+      "default": "",
+      "examples": [
+        "User clicks the map to query for IPS addresses and parcels then selects the marker of interest"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "parentId": {
+      "$id": "#/properties/parentId",
+      "type": "string",
+      "title": "The Parentid Schema",
+      "default": "",
+      "examples": [
+        "rhythm-civics-base,property-layers"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "Commands": {
+      "$id": "#/properties/Commands",
+      "type": "object",
+      "title": "The Commands Schema",
+      "required": [
+        "Commands"
+      ],
+      "properties": {
+        "Commands": {
+          "$id": "#/properties/Commands/properties/Commands",
+          "type": "array",
+          "title": "The Commands Schema",
+          "items": {
+            "$id": "#/properties/Commands/properties/Commands/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "$id": "#/properties/Commands/properties/Commands/items/properties/id",
+                "type": "string",
+                "title": "The Id Schema",
+                "default": "",
+                "examples": [
+                  "layer-switcher"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "mid": {
+                "type": "string"
+              },
+              "about": {
+                "$id": "#/properties/Commands/properties/Commands/items/properties/about",
+                "type": "string",
+                "title": "The About Schema",
+                "default": "",
+                "examples": [
+                  "No layer switcher for this map"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "disabled": {
+                "$id": "#/properties/Commands/properties/Commands/items/properties/disabled",
+                "type": "boolean",
+                "title": "The Disabled Schema",
+                "default": false,
+                "examples": [
+                  false
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "Controls": {
+      "$id": "#/properties/Controls",
+      "type": "object",
+      "title": "The Controls Schema",
+      "required": [
+        "Controls"
+      ],
+      "properties": {
+        "Controls": {
+          "$id": "#/properties/Controls/properties/Controls",
+          "type": "array",
+          "title": "The Controls Schema",
+          "items": {
+            "$id": "#/properties/Controls/properties/Controls/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "id",
+              "disabled"
+            ],
+            "properties": {
+              "Commands": {
+                "$ref": "#/properties/Commands"
+              },
+              "Controls": {
+                "$ref": "#/properties/Controls"
+              },
+              "Events": {
+                "$ref": "#/properties/Events"
+              },
+              "id": {
+                "$id": "#/properties/Controls/properties/Controls/items/properties/id",
+                "type": "string",
+                "title": "The Id Schema",
+                "default": "",
+                "examples": [
+                  "toolbar"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "disabled": {
+                "$id": "#/properties/Controls/properties/Controls/items/properties/disabled",
+                "type": "boolean",
+                "title": "The Disabled Schema",
+                "default": false,
+                "examples": [
+                  false
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "Events": {
+      "$id": "#/properties/Events",
+      "type": "object",
+      "title": "The Events Schema",
+      "required": [
+        "Events"
+      ],
+      "properties": {
+        "Events": {
+          "$id": "#/properties/Events/properties/Events",
+          "type": "array",
+          "title": "The Events Schema",
+          "items": {
+            "$id": "#/properties/Events/properties/Events/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "$id": "#/properties/Events/properties/Events/items/properties/id",
+                "type": "string",
+                "title": "The Id Schema",
+                "default": "",
+                "examples": [
+                  "google-reverse-locator"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "about": {
+                "$id": "#/properties/Events/properties/Events/items/properties/about",
+                "type": "string",
+                "title": "The About Schema",
+                "default": "",
+                "examples": [
+                  "shift+click will instead do an IPS address search"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "disabled": {
+                "$id": "#/properties/Events/properties/Events/items/properties/disabled",
+                "type": "boolean",
+                "title": "The Disabled Schema",
+                "default": false,
+                "examples": [
+                  true
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

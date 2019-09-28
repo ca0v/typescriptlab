@@ -1,0 +1,294 @@
+{
+    "$schema": "./maplet.schema.json",
+    "id": "base",
+    "about": "Provides basic map functionality including default projections, basemaps, initial extent, ips symbology rules",
+    "text": "RhythmGIS",
+    "Map": {
+        "Symbology": {
+            "Symbols": [
+                {
+                    "Icons": [
+                        {
+                            "id": "MapPin.png",
+                            "Width": 0,
+                            "Height": 0
+                        }
+                    ],
+                    "id": "*",
+                    "Label": "[PrettyName] Key# [PrimaryKey]"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"fill\": {\r\n        \"type\": \"sfs\",\r\n        \"style\": \"solid\",\r\n        \"color\": [0, 0, 0, 0.3]\r\n    },\r\n    \"outline\": {\r\n        \"type\": \"sls\",\r\n        \"style\": \"solid\",\r\n        \"color\": [255,255,255, 0.7],\r\n        \"width\": 4\r\n     }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "about": "Render the buffer search area"
+                        }
+                    ],
+                    "id": "flash-buffer",
+                    "about": "Render the buffer search area"
+                }
+            ],
+            "IconWidth": 48,
+            "IconHeight": 48
+        },
+        "Options": {
+            "Values": [
+                {
+                    "id": "region",
+                    "value": "maplet-region"
+                },
+                {
+                    "id": "resize-sensor",
+                    "about": "detect when the container changes size",
+                    "value": "true"
+                }
+            ]
+        }
+    },
+    "Commands": {
+        "Commands": [
+            {
+                "id": "add-projection",
+                "about": "defines available proj4 projections",
+                "mid": "app/commands/add-projection",
+                "type": "startup",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "EPSG:102707",
+                            "value": "+proj=tmerc +lat_0=34.75 +lon_0=-115.5833333333333 +k=0.9999 +x_0=200000 +y_0=7999999.999999999 +datum=NAD83 +units=us-ft +no_defs"
+                        },
+                        {
+                            "id": "EPSG:3421",
+                            "value": "+proj=tmerc +lat_0=34.75 +lon_0=-115.5833333333333 +k=0.9999 +x_0=200000.00001016 +y_0=8000000.000010163 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=us-ft +no_defs"
+                        },
+                        {
+                            "id": "EPSG:4269",
+                            "value": "+proj=longlat +ellps=GRS80 +datum=NAD83 +no_defs"
+                        },
+                        {
+                            "id": "EPSG:102113",
+                            "value": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
+                        },
+                        {
+                            "id": "EPSG:3857",
+                            "value": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
+                        },
+                        {
+                            "id": "EPSG:26729",
+                            "value": "+proj=tmerc +lat_0=30.5 +lon_0=-85.83333333333333 +k=0.99996 +x_0=152400.3048006096 +y_0=0 +datum=NAD27 +units=us-ft +no_defs"
+                        },
+                        {
+                            "id": "EPSG:102726",
+                            "value": "+proj=lcc +lat_1=44.33333333333334 +lat_2=46 +lat_0=43.66666666666666 +lon_0=-120.5 +x_0=2500000 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs"
+                        },
+                        {
+                            "id": "EPSG:102100",
+                            "value": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"
+                        },
+                        {
+                            "id": "EPSG:2193",
+                            "value": "+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600000 +y_0=10000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "layer-switcher",
+                "about": "Adds ol3 layer switcher to the ol3 map, see https://github.com/walkermatt/ol3-layerswitcher",
+                "mid": "app/commands/layer-switcher",
+                "text": "Layer Switcher",
+                "type": "startup",
+                "disabled": false
+            },
+            {
+                "id": "feature-collection-handler",
+                "about": "watches the feature collection and keeps it in sync with a vector layer",
+                "mid": "app/commands/feature-collection-handler",
+                "type": "startup",
+                "disabled": false
+            },
+            {
+                "id": "map-hover-handler",
+                "about": "display mouse coordinates in lower-left corner of map",
+                "mid": "app/commands/map-hover-handler",
+                "type": "startup",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "projection",
+                            "value": "EPSG:4326"
+                        },
+                        {
+                            "id": "class-name",
+                            "value": "mouse-coordinates-position"
+                        },
+                        {
+                            "id": "default-markup"
+                        },
+                        {
+                            "id": "fractions",
+                            "about": "Display precision to 1 decimeter",
+                            "value": "4"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Events": {
+        "Events": [
+            {
+                "name": "command",
+                "id": "command-handler",
+                "about": "Allows commands to execute via trigger(\"command\", args), facilitates command interception",
+                "mid": "app/commands/command-handler",
+                "disabled": false
+            },
+            {
+                "name": "map-resolution",
+                "id": "map-event-handler",
+                "about": "logs the maps viewstate",
+                "mid": "app/commands/map-event-handler",
+                "disabled": true
+            },
+            {
+                "name": "feature-hover",
+                "id": "feature-hover-handler",
+                "about": "Highlight feature when cursor moves over it",
+                "mid": "app/commands/feature-highlight-handler",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "symbology",
+                            "about": "Identify styling rules for features under the cursor",
+                            "value": "hover"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "show-in-grid",
+                "id": "show-in-grid-handler",
+                "about": "Add features to the grid",
+                "mid": "app/commands/render-features",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "grid",
+                            "value": "true"
+                        },
+                        {
+                            "id": "map",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "show-in-map",
+                "id": "show-in-map-handler",
+                "about": "Add features on the map",
+                "mid": "app/commands/render-features",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "grid",
+                            "value": "false"
+                        },
+                        {
+                            "id": "map",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "show-info,show-marker-info",
+                "id": "show-info-handler",
+                "about": "Opens an infoviewer on the map",
+                "mid": "app/commands/popup-tool",
+                "disabled": false
+            },
+            {
+                "name": "show-layer",
+                "id": "show-layer-handler",
+                "about": "If layer is decorated with an extent then ensure that extent is visible when layer is made visible",
+                "mid": "app/commands/show-layer-handler",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "panmap",
+                            "value": "true"
+                        },
+                        {
+                            "id": "zoommap",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "geoquery-result",
+                "id": "geoquery-result-handler",
+                "mid": "app/commands/geoquery-result-handler",
+                "text": "Query Results",
+                "type": "geoquery-form",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "panmap",
+                            "about": "overrides auto-zoom configuration to ensure map pans",
+                            "value": "true"
+                        },
+                        {
+                            "id": "zoommap",
+                            "about": "overrides auto-zoom configuration to ensure map zooms",
+                            "value": "true"
+                        },
+                        {
+                            "id": "event",
+                            "about": "show the feature on the map and pan+zoom the feature(s) into view",
+                            "value": "show-in-map,auto-zoom"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "growl",
+                "id": "growl",
+                "about": "Add \"growl\" handler to support notifying user when no results are found",
+                "mid": "app/commands/growl",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "remove-delay",
+                            "about": "Clear message after 5 seconds",
+                            "value": "5"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Options": {
+        "Values": [
+            {
+                "id": "region",
+                "value": "applet-region"
+            }
+        ]
+    }
+}

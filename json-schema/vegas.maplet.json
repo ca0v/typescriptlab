@@ -1,0 +1,36 @@
+{
+    "$schema": "./maplet.schema.json",
+    "id": "vegas",
+    "text": "Vegas viewport",
+    "Map": {
+        "Options": {
+            "Values": [
+                {
+                    "id": "init-zoom",
+                    "about": "Zoom into to about 10 block radius",
+                    "value": "17"
+                },
+                {
+                    "id": "extent",
+                    "about": "Las Vegas and surrounding area",
+                    "value": "-115.435,36.000, -114.938, 36.342"
+                },
+                {
+                    "id": "init-center",
+                    "about": "Somewhere in Las Vegas",
+                    "value": "-115.2322,36.1822"
+                },
+                {
+                    "id": "max-zoom",
+                    "about": "To be moved to VIEWPORT",
+                    "value": "19"
+                },
+                {
+                    "id": "min-zoom",
+                    "about": "To be moved to VIEWPORT",
+                    "value": "10"
+                }
+            ]
+        }
+    }
+}

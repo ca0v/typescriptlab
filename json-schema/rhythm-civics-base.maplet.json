@@ -1,0 +1,843 @@
+{
+    "$schema": "./maplet.schema.json",
+    "id": "rhythm-civics-base",
+    "about": "base configuration for rhythm civics",
+    "parentId": "base,vegas,basemaps",
+    "text": "Civics Maplet",
+    "Map": {
+        "Symbology": {
+            "Symbols": [
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"silver-pink.png\",\r\n        \"anchorYValue\": 1\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "ServiceRequest,serviceRequest"
+                                    }
+                                ]
+                            },
+                            "id": "ServiceRequest.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYValue\": 1,\r\n        \"color\": [0,255,255], \"opacity\": 0.5\r\n    },\r\n    \"text\": {\r\n        \"text\": \"\u003c%= _dataType %\u003e\u003c%= applicationNumber %\u003e\"\r\n    }\r\n\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "about": "Service Request"
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "planning,Planning"
+                                    }
+                                ]
+                            },
+                            "id": "Planning_Application.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYValue\": 1,\r\n        \"color\": [128,128,128,1], \"opacity\": 0.5\r\n    },\r\n    \"text\": {\r\n        \"text\": \"Planning \u003c%= applicationNumber %\u003e\"\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "template": "app/templates/civics-infoviewer-template"
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "businessLicense,BusinessLicense"
+                                    }
+                                ]
+                            },
+                            "id": "License_Application.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYValue\": 1,\r\n        \"color\": [128,128,0], \"opacity\": 0.5\r\n    },\r\n    \"text\": {\r\n        \"text\": \"\u003c%= _dataType %\u003e\u003c%= applicationNumber %\u003e\"\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "building,Building"
+                                    }
+                                ]
+                            },
+                            "id": "Building_Review.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYValue\": 1,\r\n        \"color\": [128,190,256], \"opacity\": 0.5\r\n     },\r\n    \"text\": {\r\n        \"text\": \"Building \u003c%= applicationNumber %\u003e\"\r\n   }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "project,Project"
+                                    }
+                                ]
+                            },
+                            "id": "Project_Application.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYUnits\": \"pixels\",\r\n        \"anchorYValue\": 62,\r\n        \"color\": [0,255,128], \"opacity\": 0.5\r\n    },\r\n    \"text\": {\r\n        \"text\": \"\u003c%= _dataType %\u003e\u003c%= applicationNumber %\u003e\"\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "use,Use"
+                                    }
+                                ]
+                            },
+                            "id": "Use_Application.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYValue\": 1,\r\n        \"color\": [255,128,0], \"opacity\": 0.5\r\n    },\r\n    \"text\": {\r\n        \"text\": \"\u003c%= _dataType %\u003e\u003c%= applicationNumber %\u003e\"\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "codeEnforcement,CodeEnforcement"
+                                    }
+                                ]
+                            },
+                            "id": "Case.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYValue\": 1,\r\n        \"color\": [128,255,128], \"opacity\": 0.5\r\n     },\r\n    \"text\": {\r\n        \"text\": \"\u003c%= _dataType %\u003e\u003c%= applicationNumber %\u003e\"\r\n   }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "_dataType",
+                                        "Value": "tradeLicense,TradeLicense"
+                                    }
+                                ]
+                            },
+                            "id": "trade-license",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"fill\": {\r\n        \"type\": \"sfs\",\r\n        \"style\": \"solid\",\r\n        \"color\": [0, 197, 0, 0.1]\r\n    },\r\n    \"outline\": {\r\n        \"type\": \"sls\",\r\n        \"style\": \"solid\",\r\n        \"color\": [50, 0, 0, 0.5],\r\n        \"width\": 4\r\n     },\r\n    \"image\": {\r\n        \"type\": \"icon\",\r\n        \"icon\": \"Building_Application.png\"\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "type",
+                                        "Value": "address"
+                                    }
+                                ]
+                            },
+                            "id": "address-marker",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchor\": [0.5, 1.0],\r\n        \"color\": [255, 0, 0], \r\n        \"opacity\": 0.5,\r\n        \"scale\": 0.75\r\n    },\r\n    \"text\": {\r\n        \"text\": \"\u003c%=text %\u003e\",\r\n        \"textAlign\": \"center\",\r\n        \"textBaseline\": \"top\"\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003e\u003c%= text %\u003e\u003c/address\u003e"
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "type",
+                                        "Value": "text,address"
+                                    }
+                                ]
+                            },
+                            "id": "text-only-marker",
+                            "type": "style",
+                            "style": "{\"type\":\"circle\",\"radius\":7,\"fill\":{\"color\":[247,96,84]}}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003e\u003c%= text %\u003e\u003c/address\u003e"
+                        }
+                    ],
+                    "id": "*",
+                    "Label": "\u003c%= computedDescription %\u003e",
+                    "template": "app/templates/civics-infoviewer-template",
+                    "about": "Default symbolizer"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\"type\":\"sfs\",\"style\":\"solid\",\"color\":[0,246,0,0.5],\"outline\":{\"type\":\"sls\",\"style\":\"solid\",\"color\":[246,103,197],\"width\":1}}",
+                            "Width": 0,
+                            "Height": 0
+                        }
+                    ],
+                    "id": "properties",
+                    "Label": "\u003c%= PROPID %\u003e - \u003c%= PROPNAME %\u003e \u003ch6\u003e\u003c%= Comment %\u003e\u003c/h6\u003e"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"sfs\",\r\n    \"style\": \"solid\",\r\n    \"color\": [8, 150, 234, 0.5],\r\n    \"outline\": {\r\n        \"type\": \"sls\",\r\n        \"style\": \"solid\",\r\n        \"color\": [246, 103, 197],\r\n        \"width\": 1\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003e\r\n\u003c%= PRCLNAME %\u003e\u003cbr/\u003e\r\n\u003c%= COMMENT %\u003e\r\n\u003c/address\u003e",
+                            "about": "Custom label and style for parcels, label customized for Vegas GIS data (not ips data)"
+                        }
+                    ],
+                    "id": "parcels",
+                    "Label": "\u003caddress\u003e\u003c%= OWNER %\u003e\u003cbr/\u003e\u003c%= ADDRESS1 %\u003e\u003cbr/\u003e\u003c%= ADDRESS2 %\u003e\u003c/address\u003e"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\"type\":\"circle\",\"radius\":7,\"fill\":{\"color\":[247,96,84]}}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003e\u003c%= displayText %\u003e\u003c/address\u003e"
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "AddrType",
+                                        "Value": "A",
+                                        "about": "IPS Address"
+                                    }
+                                ]
+                            },
+                            "id": "ips-address",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"MapPin.png\",\r\n        \"anchorYUnits\": \"pixels\",\r\n        \"anchorYValue\": 33\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003e\r\n\u003c%= OWNER %\u003e\u003cbr/\u003e\r\n\u003c%= STRNO %\u003e \u003c%= STRNAME %\u003e \u003c%= STRTYPE %\u003e\u003cbr/\u003e\r\n\u003c%= CITY %\u003e \u003c%= STATE %\u003e \u003c%= ZIP %\u003e\r\n\u003c/address\u003e"
+                        }
+                    ],
+                    "id": "addresses",
+                    "Label": "\u003c%= displayText %\u003e",
+                    "about": "ips addresses"
+                },
+                {
+                    "Icons": [
+                        {
+                            "id": "*",
+                            "type": "style",
+                            "style": "{\"type\":\"circle\",\"radius\":9,\"fill\":{\"color\":[247,96,247]}}",
+                            "Width": 0,
+                            "Height": 0
+                        },
+                        {
+                            "Filters": {
+                                "Filters": [
+                                    {
+                                        "id": "requestType.type",
+                                        "Value": "GISTest",
+                                        "about": "requestType.type == GISTest"
+                                    }
+                                ]
+                            },
+                            "id": "ServiceRequest.png",
+                            "type": "style",
+                            "style": "{\r\n    \"type\": \"mixed\",\r\n    \"image\": {\r\n        \"icon\": \"white-hole.png\",\r\n        \"anchorYUnits\": \"pixels\",\r\n        \"anchorYValue\": 62,\r\n        \"color\": [203, 28, 99, 10]\r\n    },\r\n    \"text\": {\r\n        \"text\": \"SR \u003c%=id%\u003e\",\r\n        \"textAlign\": \"center\",\r\n        \"textBaseline\": \"top\",\r\n        \"offsetY\": 64,\r\n        \"scale\": 2\r\n    }\r\n}",
+                            "Width": 0,
+                            "Height": 0,
+                            "Label": "\u003caddress\u003eService Request \u003c%= id %\u003e\u003c/address\u003e\u003caddress\u003e\u003c%= address.displayText %\u003e\u003c/address\u003e\u003ccomment\u003e\u003c%= requestType.description %\u003e\u003c/comment\u003e"
+                        }
+                    ],
+                    "id": "crm-servicerequest",
+                    "Label": "\u003caddress\u003e\u003c%= locationLine1 %\u003e\u003c/address\u003e\u003caddress\u003e\u003c%= locationLine2 %\u003e\u003c/address\u003e",
+                    "about": "IPS service requests directly from locator"
+                }
+            ],
+            "IconWidth": 0,
+            "IconHeight": 0
+        },
+        "Layers": {
+            "Layers": [
+                {
+                    "Commands": {
+                        "Commands": [
+                            {
+                                "id": "more-info",
+                                "about": "Adds a \u0027more info\u0027 button to the info viewer popup",
+                                "mid": "app/commands/trigger",
+                                "text": "View Details",
+                                "type": "action",
+                                "disabled": false,
+                                "Options": {
+                                    "Values": [
+                                        {
+                                            "id": "event",
+                                            "value": "civics:show-details"
+                                        },
+                                        {
+                                            "id": "css-name",
+                                            "value": "btn btn-secondary"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "Options": {
+                        "Values": [
+                            {
+                                "id": "field-list",
+                                "about": "List the fields in the order you\u0027d like them to appear in the infoViewer",
+                                "value": "_dataType,applicationNumber"
+                            },
+                            {
+                                "id": "anchorYValue",
+                                "about": "The vertical offset of the markers associated with this layer, a 1 will shift the marker up so the bottom edge touches the point-feature; use 0.5 to center.",
+                                "value": "1"
+                            },
+                            {
+                                "id": "show-labels",
+                                "value": "false"
+                            }
+                        ]
+                    },
+                    "id": "civics",
+                    "text": "Search Results",
+                    "type": "app/layer-factory/configuration-features",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false
+                },
+                {
+                    "Options": {
+                        "Values": [
+                            {
+                                "id": "field-list",
+                                "about": "List the fields in the order you\u0027d like them to appear in the infoViewer",
+                                "value": "portalDescription,applicationNumber"
+                            },
+                            {
+                                "id": "symbology",
+                                "value": "parcels"
+                            },
+                            {
+                                "id": "show-labels",
+                                "value": "false"
+                            }
+                        ]
+                    },
+                    "id": "parcel-features",
+                    "text": "Parcels Features",
+                    "type": "app/layer-factory/configuration-features",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false,
+                    "about": "This is where parcel features will ideally end up...presently they\u0027re being added to the maps main vector layer"
+                },
+                {
+                    "Options": {
+                        "Values": [
+                            {
+                                "id": "field-list",
+                                "about": "List the fields in the order you\u0027d like them to appear in the infoViewer",
+                                "value": "FID,MAPNO"
+                            },
+                            {
+                                "id": "symbology",
+                                "value": "addresses"
+                            },
+                            {
+                                "id": "show-labels",
+                                "value": "false"
+                            }
+                        ]
+                    },
+                    "id": "address-features",
+                    "text": "Address Features",
+                    "type": "app/layer-factory/configuration-features",
+                    "basemap": false,
+                    "minlevel": 0,
+                    "maxlevel": 0,
+                    "disabled": false,
+                    "about": "This is where address features end up"
+                }
+            ]
+        },
+        "Options": {
+            "Values": [
+                {
+                    "id": "default-interactions",
+                    "about": "See http://openlayers.org/en/latest/apidoc/ol.interaction.html#.defaults",
+                    "value": "{\r\n    \"altShiftDragRotate\": true,\r\n    \"doubleClickZoom\": true,\r\n    \"keyboard\": true,\r\n    \"mouseWheelZoom\": false,\r\n    \"shiftDragZoom\": true,\r\n    \"dragPan\": true,\r\n    \"pinchRotate\": true,\r\n    \"pinchZoom\": true,\r\n    \"zoomDuration\": 1\r\n}"
+                },
+                {
+                    "id": "default-controls",
+                    "about": "See http://openlayers.org/en/latest/apidoc/ol.control.html#.defaults",
+                    "value": "{\r\n    \"attribution\": false,\r\n    \"rotate\": false,\r\n    \"zoom\": true,\r\n    \"zoomOptions\": {\r\n        \"zoomInTipLabel\": \"Zoom In\",\r\n        \"zoomOutTipLabel\": \"Zoom Out\",\r\n        \"duration\": 20\r\n    }\r\n}"
+                }
+            ]
+        }
+    },
+    "Commands": {
+        "Commands": [
+            {
+                "id": "get-info-tool",
+                "about": "Allow user to click a feature to display information about that feature; this is failing because the map is not loaded by the time this runs so moving it into a toolbar control",
+                "mid": "app/commands/feature-selection-tool",
+                "text": "Get Info",
+                "type": "startup",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "type",
+                            "about": "User can click the map to query feature info (set value to point+box for multi-select)",
+                            "value": "point"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Identifies the desired EVENT handler",
+                            "value": "show-info"
+                        },
+                        {
+                            "id": "buffer-size",
+                            "about": "Make the buffer area large enough to easily select point features",
+                            "value": "16"
+                        },
+                        {
+                            "id": "condition",
+                            "value": "none"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "layer-switcher",
+                "text": "Layer Switcher",
+                "disabled": false
+            },
+            {
+                "id": "liferay-interpreter",
+                "about": "Listens for mediator events, re-interprets the arguments and triggers a new event on the civics channel",
+                "mid": "app/commands/liferay-interpreter",
+                "type": "startup",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "channel-name",
+                            "value": "civics-channel"
+                        },
+                        {
+                            "id": "liferay-echo-prefix",
+                            "value": "liferay"
+                        },
+                        {
+                            "id": "debug",
+                            "value": "false"
+                        },
+                        {
+                            "id": "snapshot",
+                            "about": "take a snapshot of the feature(s)",
+                            "value": "true"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Controls": {
+        "Controls": [
+            {
+                "Controls": {
+                    "Controls": [
+                        {
+                            "Events": {
+                                "Events": [
+                                    {
+                                        "name": "liferay:search",
+                                        "id": "liferay-search-handler",
+                                        "mid": "app/commands/trigger",
+                                        "disabled": false,
+                                        "Options": {
+                                            "Values": [
+                                                {
+                                                    "id": "event",
+                                                    "value": "clear-features-from-layer,universal-search"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            "id": "universal-search-tool",
+                            "mid": "app/controls/universal-search-tool",
+                            "text": "Quick Search",
+                            "disabled": false,
+                            "Options": {
+                                "Values": [
+                                    {
+                                        "id": "template",
+                                        "value": "app/templates/universal-search-template"
+                                    },
+                                    {
+                                        "id": "event",
+                                        "about": "Clear existing fetures before performing search",
+                                        "value": "clear-features-from-layer,universal-search"
+                                    },
+                                    {
+                                        "id": "css-name",
+                                        "value": "header"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "id": "toolbar",
+                "mid": "app/controls/view",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "template",
+                            "about": "identify a template containing view regions",
+                            "value": "app/templates/toolbar-template"
+                        },
+                        {
+                            "id": "view",
+                            "value": "app/views/ToolbarView"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Events": {
+        "Events": [
+            {
+                "name": "show-info",
+                "id": "show-info-handler",
+                "about": "Listens for \u0027show-info\u0027 and then launches the info-viewer via the popup-tool",
+                "mid": "app/commands/popup-tool",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "template",
+                            "about": "Default to the civics template which renders the label and the field values listed in the \u0027field-list\u0027",
+                            "value": "app/templates/civics-infoviewer-template"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "universal-search",
+                "id": "google-locator",
+                "about": "Listens for \u0027universal-search\u0027 and attempts to find an address or intersection via a google search",
+                "mid": "app/commands/google-geocoder",
+                "text": "Google Address Locator",
+                "type": "find",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "region",
+                            "about": "limit search results to the United States (not working)",
+                            "value": "US"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Once the results are gathered forward them to the \u0027geoquery-result\u0027 handler",
+                            "value": "geoquery-result"
+                        },
+                        {
+                            "id": "key-template",
+                            "value": "\u003c%=place_id %\u003e"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "map-click",
+                "id": "google-reverse-locator",
+                "about": "reverse-geocode on every map-click",
+                "mid": "app/commands/google-geocoder",
+                "disabled": true,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "reverse",
+                            "about": "one of true,false,auto but in this case true will try to find an address when the map is clicked",
+                            "value": "true"
+                        },
+                        {
+                            "id": "google-result-type",
+                            "about": "valid values include street_address, neighborhood, political, postal_code, administrative_area_level_1, administrative_area_level_2",
+                            "value": "street_address"
+                        },
+                        {
+                            "id": "key-template",
+                            "about": "the place_id is a google feature identifier, use it as our feature key",
+                            "value": "\u003c%=place_id %\u003e"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Place the marker on the map (the marker has a label so don\u0027t show the info viewer)",
+                            "value": "geoquery-result"
+                        },
+                        {
+                            "id": "condition",
+                            "about": "Only executes when the shift key is pressed",
+                            "value": "shift"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "universal-search",
+                "id": "ags-property-locator",
+                "about": "Use the AGS find service to search for properties",
+                "mid": "app/commands/ags-geoquery-locator",
+                "text": "Property Locator",
+                "type": "find",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "query-service",
+                            "value": "//usalvwdgis1:6080/arcgis/rest/services/Vegas/MapVegas850/MapServer/17\u0026sr=4326"
+                        },
+                        {
+                            "id": "symbology",
+                            "about": "Directs the renderer to use the \u0027parcels\u0027 symbologies instead of the default (*) symbologies",
+                            "value": "properties"
+                        },
+                        {
+                            "id": "zoommap",
+                            "value": "true"
+                        },
+                        {
+                            "id": "key-template",
+                            "value": "\u003c%=FID%\u003e"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Once the results are gathered forward them to the \u0027geoquery-result\u0027 handler",
+                            "value": "geoquery-result"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "universal-search",
+                "id": "ags-parcel-locator",
+                "about": "Use the AGS find service to search for parcels",
+                "mid": "app/commands/ags-geoquery-locator",
+                "text": "Parcel Locator",
+                "type": "find",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "query-service",
+                            "value": "//usalvwdgis1:6080/arcgis/rest/services/Vegas/MapVegas850/MapServer/18\u0026sr=4326"
+                        },
+                        {
+                            "id": "symbology",
+                            "about": "Directs the renderer to use the \u0027parcels\u0027 symbologies instead of the default (*) symbologies",
+                            "value": "parcels"
+                        },
+                        {
+                            "id": "zoommap",
+                            "value": "true"
+                        },
+                        {
+                            "id": "key-template",
+                            "value": "\u003c%=FID%\u003e"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Once the results are gathered forward them to the \u0027geoquery-result\u0027 handler",
+                            "value": "add-to-parcel-layer,auto-zoom"
+                        },
+                        {
+                            "id": "layer-name",
+                            "about": "merge features into the parcel-features layer",
+                            "value": "parcel-features"
+                        },
+                        {
+                            "id": "keywords",
+                            "value": "parcel"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "show-in-map",
+                "id": "show-in-map-handler",
+                "about": "Add features on the map",
+                "mid": "app/commands/render-features",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "grid",
+                            "value": "false"
+                        },
+                        {
+                            "id": "map",
+                            "value": "true"
+                        },
+                        {
+                            "id": "preserve-extent",
+                            "value": "false"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "add-to-address-layer",
+                "id": "add-to-address-layer-handler",
+                "mid": "app/commands/add-features-to-layer",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "layer-name",
+                            "value": "address-features"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "add-to-parcel-layer",
+                "id": "add-to-parcel-layer-handler",
+                "mid": "app/commands/add-features-to-layer",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "layer-name",
+                            "value": "parcel-features"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "auto-zoom",
+                "id": "auto-zoom-handler",
+                "mid": "app/commands/auto-zoom",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "panmap",
+                            "value": "true"
+                        },
+                        {
+                            "id": "zoommap",
+                            "value": "true"
+                        },
+                        {
+                            "id": "preserve-extent",
+                            "value": "true"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "current-location",
+                "id": "current-location-handler",
+                "mid": "app/commands/geolocation-tool",
+                "disabled": false
+            },
+            {
+                "name": "universal-search",
+                "id": "ips-address-locator",
+                "about": "Search addresses for universal search value",
+                "mid": "app/commands/ips-geoquery-locator",
+                "text": "Address Locator",
+                "type": "find",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "query-service",
+                            "value": "property/addresses"
+                        },
+                        {
+                            "id": "service-query-template",
+                            "value": "{\r\n    \"formulaName\": \"FalseMapValidation\",\r\n    \"Data\": {\r\n        \"attributes\": {\r\n            \"PARCLKEY\": 10153454,\r\n            \"PARCLID\": \"00005-44454-4546\"\r\n        }\r\n    }\r\n}"
+                        },
+                        {
+                            "id": "symbology",
+                            "value": "addresses"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Once the results are gathered forward them to the \u0027geoquery-result\u0027 handler",
+                            "value": "geoquery-result"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "universal-search",
+                "id": "ips-crm-servicerequest-locator",
+                "about": "Search service requests for universal search value",
+                "mid": "app/commands/ips-geoquery-locator",
+                "text": "Address Locator",
+                "type": "find",
+                "disabled": false,
+                "Options": {
+                    "Values": [
+                        {
+                            "id": "query-service",
+                            "value": "crm/ServiceRequests"
+                        },
+                        {
+                            "id": "service-query-template",
+                            "value": "{filter:{property:id,operator:Equals,value:\"\u003c%= location %\u003e\"}}"
+                        },
+                        {
+                            "id": "symbology",
+                            "value": "crm-servicerequest"
+                        },
+                        {
+                            "id": "event",
+                            "about": "Once the results are gathered forward them to the \u0027geoquery-result\u0027 handler",
+                            "value": "geoquery-result"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Options": {
+        "Values": [
+            {
+                "id": "css-name",
+                "about": "loads a custom css to manipulate toolbar layout",
+                "value": "civics-my-projects"
+            }
+        ]
+    }
+}

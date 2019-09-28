@@ -1,0 +1,9 @@
+0 silly argv { _: [ 'create' ],
+0 silly argv   lernaVersion: '3.16.4',
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
+0 silly argv   name: 'https://github.com/ca0v/ceylon/tarball/v1.0.1' }
+1 notice cli v3.16.4
+2 verbose rootPath C:\code\ca0v\typescriptlab
+3 error TypeError: Expected the input to be `string | string[]`
+3 error     at camelCase (C:\code\ca0v\typescriptlab\node_modules\@lerna\create\node_modules\camelcase\index.js:34:9)
+3 error     at CreateCommand.initialize (C:\code\ca0v\typescriptlab\node_modules\@lerna\create\index.js:63:22)
