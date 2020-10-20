@@ -1,3 +1,7 @@
+declare type PromiseFunc = (item: any) => Promise<any>;
+interface Array<T> {
+    foobar(action: PromiseFunc): Promise<Array<any>>;
+}
 declare module "l1/src/index" {
     export class Layer1 {
         init(): void;

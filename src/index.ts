@@ -12,4 +12,7 @@ export function run() {
   l3.run();
   console.log("done");
   alert("see console 2");
+
+  const a = new Array();
+  console.log(a.foobar, "mapParallel");
 }

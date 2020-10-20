@@ -11,7 +11,7 @@
     "watch:terser": "chokidar \"dist/index.js\" -d -t -c \"npm run terser\"",
     "terser": "terser node_modules/requirejs/require.js node_modules/jquery/dist/jquery.js src/yall.js dist/index.js -o dist/app.js --source-map \"url='./app.js.map',includeSources=true\"",
     "watch:server": "live-server --open=./src/app.html --watch=dist/app.js,src/app.html",
-    "watch": "npm-run-all -p watch:compile watch:terser watch:server",
+    "dev": "npm-run-all -p watch:compile watch:terser watch:server",
     "test": "@echo todo"
   },
   "repository": {
